@@ -1,0 +1,1 @@
+export { NotFoundPageRoute } from './NotFoundPageRoute'

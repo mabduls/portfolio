@@ -1,0 +1,1 @@
+export { AboutPageRoute } from './AboutPageRoute'

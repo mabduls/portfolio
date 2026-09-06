@@ -1,0 +1,1 @@
+export { HyangPageRoute } from './HyangPageRoute'

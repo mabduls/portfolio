@@ -1,0 +1,1 @@
+export { LandingPageRoute } from './LandingPageRoute'
