@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "server:staging": "cross-env NODE_ENV=staging node server.js",
     "preview": "vite preview",
     "lint": "npm run lint:oxlint && npm run lint:eslint",
     "lint:oxlint": "oxlint .",
