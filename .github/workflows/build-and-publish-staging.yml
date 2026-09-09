@@ -84,7 +84,8 @@ jobs:
       - name: Run New Docker Container
         run: |
           docker run -d \
-            --publish 3000:3000 \
+            --network host \
+            --env PORT=3000 \
             --name portfolio-web-staging-app \
             --restart always \
             "${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}"
