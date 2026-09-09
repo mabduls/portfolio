@@ -11,8 +11,8 @@ env:
   IMAGE_TAG: ${{ github.sha }}
 
 jobs:
-  ci:
-    name: CI - Verify and Publish Image
+  build-and-publish:
+    name: build-and-publish
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -59,9 +59,9 @@ jobs:
             ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
             ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:staging
 
-  cd:
-    name: CD - Deploy Staging
-    needs: ci
+  deploy-to-docker:
+    name: deploy-to-docker
+    needs: build-and-publish
     runs-on: self-hosted
     permissions:
       contents: read

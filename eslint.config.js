@@ -22,7 +22,7 @@ export default defineConfig([
   },
 
   {
-    files: ['vite.config.js', 'playwright.config.js', 'eslint.config.js'],
+    files: ['vite.config.js', 'playwright.config.js', 'eslint.config.js', 'server.js'],
     languageOptions: {
       globals: {
         ...globals.node,
