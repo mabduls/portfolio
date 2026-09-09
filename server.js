@@ -1,11 +1,16 @@
-const path = require('path')
-const fastify = require('fastify')({ logger: true })
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
+import Fastify from 'fastify'
+import fastifyStatic from '@fastify/static'
 
-const PORT = process.env.PORT
-const ENV = process.env.NODE_ENV
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
+const PORT = Number(process.env.PORT || 3000)
+const ENV = process.env.NODE_ENV || 'staging'
+const fastify = Fastify({ logger: true })
 
 // 1. Registrasikan plugin @fastify/static untuk melayani folder 'dist'
-fastify.register(require('@fastify/static'), {
+fastify.register(fastifyStatic, {
   root: path.join(__dirname, 'dist'),
   prefix: '/', // Menyajikan file statis dari root URL
 })
