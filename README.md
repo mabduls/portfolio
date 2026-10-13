@@ -1,8 +1,8 @@
-# Muhammad Abdul Aziz — Engineering Portfolio
+# Muhammad Abdul Aziz — Portfolio
 
-A production-oriented portfolio built with Vue 3, Vue Router, Tailwind CSS, and JavaScript. It presents factual case studies across real-time systems, secure enterprise platforms, geospatial monitoring, data integration, and fullstack delivery.
+A responsive dark-theme portfolio built with Vue 3, Vue Router, Tailwind CSS, and JavaScript. It presents aircraft tracking, border monitoring, reinsurance, and data platform case studies with product overviews and technical details.
 
-Confidential projects use conceptual recreations and deterministic synthetic data. The repository contains no operational coordinates, internal screenshots, credentials, private endpoints, or client-sensitive infrastructure.
+Confidential projects use high-level descriptions and generic illustrations. At the user’s request, the ADS-B results gallery also displays the six supplied application screenshots. It uses lightweight responsive previews and an accessible full-size viewer. Credentials, private endpoints, and client-sensitive infrastructure are not added.
 
 ## Requirements
 
@@ -35,10 +35,12 @@ Playwright requires Chromium once per machine:
 npx playwright install chromium
 ```
 
+To use an already-installed Chrome for browser tests, run `PLAYWRIGHT_BROWSER_CHANNEL=chrome npm run test:e2e`.
+
 Use `npm run lint:fix` and `npm run format` for intentional source rewrites. The regular CI commands are read-only.
 
 ## Content updates
 
-Project and profile facts live in `src/shared/data`. Public email, GitHub, LinkedIn, résumé, and site URL values are intentionally absent until verified. Keep unavailable values `null`; the interface hides them rather than rendering placeholder links.
+Project and profile facts live in `src/shared/data`. The public email and LinkedIn URL are user supplied. The resume action is omitted at the user’s request. Add personal project contributions only when confirmed; the overview documents establish application capabilities rather than individual feature ownership. Configure `VITE_SITE_URL` with the verified public origin when deploying.
 
 See [ARCHITECTURE.md](./ARCHITECTURE.md) for module rules, routing, environment behavior, testing, and confidentiality constraints.

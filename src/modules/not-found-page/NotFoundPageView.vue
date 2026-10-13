@@ -3,15 +3,14 @@ import { RouterLink } from 'vue-router'
 import AppContainer from '@/shared/components/AppContainer.vue'
 </script>
 <template>
-  <section class="grid min-h-[70vh] place-items-center py-24">
+  <section class="not-found">
     <AppContainer
-      ><div class="mx-auto max-w-2xl text-center">
-        <p class="eyebrow">Error 404</p>
-        <h1 class="mt-4 text-5xl font-bold text-white">This route left the radar.</h1>
-        <p class="mt-5 text-lg text-slate-300">
-          The page may have moved, or the address may be incorrect.
-        </p>
-        <RouterLink to="/" class="button-primary mt-8">Return home</RouterLink>
+      ><p class="eyebrow">Error 404</p>
+      <h1>Page not found</h1>
+      <p>The page may have moved, or the address may be incorrect.</p>
+      <div class="actions">
+        <RouterLink to="/" class="button-primary">Return home</RouterLink
+        ><RouterLink to="/projects" class="button-secondary">Browse projects</RouterLink>
       </div></AppContainer
     >
   </section>

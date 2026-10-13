@@ -1,13 +1,12 @@
+<script setup>
+defineProps({
+  message: {
+    type: String,
+    default:
+      'This overview describes product capabilities at a high level. Production screens, operational data, and client-sensitive details are not shared.',
+  },
+})
+</script>
 <template>
-  <div
-    class="flex gap-3 rounded-xl border border-amber-300/25 bg-amber-300/8 p-4 text-sm leading-6 text-amber-100"
-    role="note"
-  >
-    <span aria-hidden="true">◇</span>
-    <p>
-      <strong>Confidentiality note:</strong> This case study uses a conceptual recreation and
-      deterministic synthetic data. It does not expose production screens, operational data,
-      infrastructure, or client-sensitive details.
-    </p>
-  </div>
+  <p class="confidential-note" role="note"><strong>Confidential project.</strong> {{ message }}</p>
 </template>

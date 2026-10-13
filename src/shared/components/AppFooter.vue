@@ -1,13 +1,23 @@
 <script setup>
+import { RouterLink } from 'vue-router'
 import AppContainer from './AppContainer.vue'
+import { contactLinks, profile } from '@/shared/data/profile'
 </script>
 
 <template>
-  <footer class="border-t border-white/10 py-9 text-sm text-slate-400">
+  <footer class="site-footer">
     <AppContainer>
-      <div class="flex flex-col justify-between gap-3 sm:flex-row">
-        <p>© {{ new Date().getFullYear() }} Muhammad Abdul Aziz.</p>
-        <p class="font-mono text-xs">Built as an engineering product with Vue.</p>
+      <div class="footer-layout">
+        <p>© {{ new Date().getFullYear() }} {{ profile.name }}</p>
+        <nav aria-label="Footer navigation">
+          <ul class="footer-links">
+            <li><RouterLink to="/projects">Projects</RouterLink></li>
+            <li><RouterLink to="/about">About</RouterLink></li>
+            <li v-for="link in contactLinks" :key="link.label">
+              <a :href="link.href">{{ link.label }}</a>
+            </li>
+          </ul>
+        </nav>
       </div>
     </AppContainer>
   </footer>

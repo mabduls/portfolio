@@ -4,8 +4,8 @@ export const AdsbPageRoute = {
   component: () => import('./AdsbPageView.vue'),
   meta: {
     layout: 'project',
-    title: 'ADS-B Surveillance Platform Case Study — Muhammad Abdul Aziz',
+    title: 'ADS-B Aircraft Tracking Platform — Muhammad Abdul Aziz',
     description:
-      'A sanitized case study of real-time aircraft visualization, playback, reporting, security, health monitoring, and failover.',
+      'Aircraft maps, flight exploration, alerts, reporting, and supporting Vue and Express application services.',
   },
 }

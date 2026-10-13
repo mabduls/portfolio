@@ -1,43 +1,47 @@
 <script setup>
 import { RouterLink } from 'vue-router'
 import TechBadge from './TechBadge.vue'
+import ProjectVisual from './ProjectVisual.vue'
 
-defineProps({ project: { type: Object, required: true } })
+defineProps({
+  project: { type: Object, required: true },
+  headingLevel: { type: String, default: 'h3' },
+})
+
+const captions = {
+  aircraft: 'Aircraft positions, flight details & reports',
+  border: 'Land sensors, air monitoring & alerts',
+  reinsurance: 'Contracts, submissions & review',
+  data: 'Sources, quality & data relationships',
+}
 </script>
 
 <template>
-  <article
-    class="surface group flex h-full flex-col rounded-2xl p-6 transition duration-200 hover:-translate-y-1 hover:border-cyan-300/35"
-  >
-    <div class="mb-5 flex items-start justify-between gap-4">
-      <span class="eyebrow !tracking-wider">{{ project.category }}</span>
-      <span
-        v-if="project.confidential"
-        class="rounded-full border border-amber-300/25 px-2.5 py-1 text-[0.65rem] font-bold uppercase tracking-wider text-amber-200"
-        >Confidential</span
+  <article class="project-card">
+    <div v-if="project.visual" class="project-card-visual" aria-hidden="true">
+      <ProjectVisual :kind="project.visual" />
+      <p class="visual-caption">{{ captions[project.visual] }}</p>
+    </div>
+    <div class="project-card-body">
+      <div class="card-meta">
+        <span class="domain-label">{{ project.category }}</span>
+        <span v-if="project.confidential" class="confidential-label">Confidential</span>
+      </div>
+      <component :is="headingLevel" class="project-card-title">{{ project.shortTitle }}</component>
+      <p class="project-card-summary">{{ project.summary }}</p>
+      <div class="badges">
+        <TechBadge
+          v-for="technology in project.technologies.slice(0, 4)"
+          :key="technology"
+          :label="technology"
+        />
+      </div>
+      <RouterLink
+        :to="project.path"
+        class="card-link"
+        :aria-label="`Read case study: ${project.title}`"
+        >Read case study <span aria-hidden="true">→</span></RouterLink
       >
     </div>
-    <h3 class="text-xl font-bold text-white">
-      <RouterLink :to="project.path" class="after:absolute after:inset-0">{{
-        project.shortTitle
-      }}</RouterLink>
-    </h3>
-    <p class="mt-3 flex-1 text-sm leading-6 text-slate-300">{{ project.summary }}</p>
-    <div class="mt-5 flex flex-wrap gap-2">
-      <TechBadge
-        v-for="technology in project.technologies.slice(0, 4)"
-        :key="technology"
-        :label="technology"
-      />
-    </div>
-    <p class="mt-6 text-sm font-bold text-cyan-300">
-      Open case study <span aria-hidden="true">→</span>
-    </p>
   </article>
 </template>
-
-<style scoped>
-article {
-  position: relative;
-}
-</style>
