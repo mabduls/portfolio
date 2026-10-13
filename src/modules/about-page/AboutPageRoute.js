@@ -6,6 +6,6 @@ export const AboutPageRoute = {
     layout: 'default',
     title: 'About Muhammad Abdul Aziz — Fullstack Developer',
     description:
-      'Profile, experience, engineering principles, and education of Fullstack Developer Muhammad Abdul Aziz.',
+      'Fullstack development experience, practical skills, and Informatics education of Muhammad Abdul Aziz.',
   },
 }

@@ -4,8 +4,8 @@ export const MonitoringPlatformPageRoute = {
   component: () => import('./MonitoringPlatformPageView.vue'),
   meta: {
     layout: 'project',
-    title: 'Real-Time Monitoring Platform Case Study — Muhammad Abdul Aziz',
+    title: 'Government Border Security Platform — Muhammad Abdul Aziz',
     description:
-      'A conceptual case study of secure multi-sensor monitoring, live events, CCTV, RF signals, aircraft, and alerts.',
+      'A confidential product-level overview of land and air border monitoring, maps, sensor views, alerts, reports, and service integrations.',
   },
 }

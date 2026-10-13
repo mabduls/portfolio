@@ -8,7 +8,12 @@ const router = createRouter({
   routes,
   scrollBehavior(to, from, savedPosition) {
     if (savedPosition) return savedPosition
-    if (to.hash) return { el: to.hash, top: 88, behavior: 'smooth' }
+    if (to.hash)
+      return {
+        el: to.hash,
+        top: 88,
+        behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+      }
     return { top: 0 }
   },
 })
@@ -43,7 +48,10 @@ router.afterEach(async (to) => {
   }
 
   await nextTick()
-  if (!to.hash) document.querySelector('#main-content')?.focus({ preventScroll: true })
+  const target = to.hash
+    ? document.getElementById(to.hash.slice(1))
+    : document.querySelector('#main-content')
+  target?.focus({ preventScroll: true })
 })
 
 export default router

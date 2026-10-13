@@ -11,7 +11,13 @@ export default defineConfig([
     files: ['**/*.{vue,js,mjs,jsx}'],
   },
 
-  globalIgnores(['**/dist/**', '**/dist-ssr/**', '**/coverage/**']),
+  globalIgnores([
+    '**/dist/**',
+    '**/dist-ssr/**',
+    '**/coverage/**',
+    '**/test-results/**',
+    '**/playwright-report/**',
+  ]),
 
   {
     languageOptions: {
@@ -22,7 +28,7 @@ export default defineConfig([
   },
 
   {
-    files: ['vite.config.js', 'playwright.config.js', 'eslint.config.js'],
+    files: ['vite.config.js', 'playwright.config.js', 'eslint.config.js', 'server.js'],
     languageOptions: {
       globals: {
         ...globals.node,

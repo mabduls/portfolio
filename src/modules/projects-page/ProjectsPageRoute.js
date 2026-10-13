@@ -4,8 +4,8 @@ export const ProjectsPageRoute = {
   component: () => import('./ProjectsPageView.vue'),
   meta: {
     layout: 'default',
-    title: 'Engineering Projects — Muhammad Abdul Aziz',
+    title: 'Projects — Muhammad Abdul Aziz',
     description:
-      'Case studies spanning real-time systems, enterprise platforms, geospatial interfaces, data platforms, and secure integrations.',
+      'Explore aircraft tracking, reinsurance, border monitoring, and data platform applications, with clear product overviews and technical details.',
   },
 }

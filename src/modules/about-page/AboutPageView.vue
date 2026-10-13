@@ -1,76 +1,58 @@
 <script setup>
+import { RouterLink } from 'vue-router'
 import AppContainer from '@/shared/components/AppContainer.vue'
 import SectionHeading from '@/shared/components/SectionHeading.vue'
-import { capabilities, experience, principles, profile } from '@/shared/data/profile'
+import { capabilities, experience, profile } from '@/shared/data/profile'
 </script>
 
 <template>
   <div>
-    <section class="py-16 sm:py-24">
+    <header class="page-intro">
       <AppContainer
         ><p class="eyebrow">About</p>
-        <h1 class="mt-5 max-w-4xl text-4xl font-bold tracking-tight text-white sm:text-6xl">
-          Engineering across interfaces, services, data, and operations.
-        </h1>
-        <p class="mt-7 max-w-3xl text-lg leading-8 text-slate-300">
-          {{ profile.summary }}
-        </p></AppContainer
+        <h1>Hi, I’m Abdul.</h1>
+        <p>{{ profile.summary }}</p>
+        <div class="actions">
+          <RouterLink to="/projects" class="button-primary"
+            >Explore my work <span aria-hidden="true">→</span></RouterLink
+          ><RouterLink to="/#contact" class="button-secondary">Get in touch</RouterLink>
+        </div></AppContainer
       >
-    </section>
-    <section class="border-y border-white/10 bg-ink-900/60 py-16 sm:py-24">
-      <AppContainer
-        ><SectionHeading eyebrow="Approach" title="Principles that shape the implementation" />
-        <ol class="mt-10 grid gap-5 sm:grid-cols-2">
-          <li
-            v-for="(principle, index) in principles"
-            :key="principle"
-            class="surface-soft flex items-start gap-4 rounded-2xl p-6"
-          >
-            <span class="font-mono text-cyan-300">0{{ index + 1 }}</span
-            ><span class="text-lg font-semibold text-white">{{ principle }}</span>
-          </li>
-        </ol></AppContainer
-      >
-    </section>
-    <section class="py-16 sm:py-24">
-      <AppContainer
-        ><div class="grid gap-12 lg:grid-cols-2">
+    </header>
+    <section class="section">
+      <AppContainer>
+        <div class="about-layout">
           <div>
-            <SectionHeading eyebrow="Experience" title="Production-oriented project work" />
-            <ol class="mt-8 space-y-7">
-              <li
-                v-for="item in experience"
-                :key="item.organization"
-                class="border-l border-cyan-300/30 pl-5"
-              >
-                <h3 class="font-bold text-white">{{ item.organization }}</h3>
-                <p class="mt-1 text-sm text-cyan-300">{{ item.role }}</p>
-                <p class="mt-2 leading-7 text-slate-300">{{ item.detail }}</p>
+            <h2>Experience</h2>
+            <ol class="experience-list">
+              <li v-for="item in experience" :key="item.organization">
+                <h3>{{ item.organization }}</h3>
+                <p class="experience-role">{{ item.role }}</p>
+                <p class="experience-detail">{{ item.detail }}</p>
               </li>
             </ol>
           </div>
           <div>
-            <SectionHeading eyebrow="Education" title="Informatics foundation" />
-            <div class="surface mt-8 rounded-2xl p-7">
-              <p class="text-xl font-bold text-white">{{ profile.education.degree }}</p>
-              <p class="mt-2 text-cyan-300">{{ profile.education.institution }}</p>
-              <p class="mt-4 font-mono text-sm text-slate-400">{{ profile.education.period }}</p>
+            <h2>Education</h2>
+            <div class="education">
+              <h3>{{ profile.education.degree }}</h3>
+              <p>{{ profile.education.institution }}</p>
+              <p class="period">{{ profile.education.period }}</p>
             </div>
           </div>
-        </div></AppContainer
-      >
+        </div>
+      </AppContainer>
     </section>
-    <section class="border-t border-white/10 py-16 sm:py-24">
+    <section class="section section-surface section-bordered">
       <AppContainer
-        ><SectionHeading eyebrow="Breadth" title="Capabilities developed through the work" />
-        <div class="mt-10 grid gap-5 sm:grid-cols-2">
-          <article
-            v-for="capability in capabilities"
-            :key="capability.title"
-            class="surface-soft rounded-2xl p-6"
-          >
-            <h3 class="text-xl font-bold text-white">{{ capability.title }}</h3>
-            <p class="mt-3 leading-7 text-slate-300">{{ capability.text }}</p>
+        ><SectionHeading title="Skills I bring to a project" />
+        <div class="skills-grid">
+          <article v-for="capability in capabilities" :key="capability.title" class="skill-block">
+            <h3>{{ capability.title }}</h3>
+            <p>{{ capability.text }}</p>
+            <ul class="skills-list">
+              <li v-for="tool in capability.tools" :key="tool">{{ tool }}</li>
+            </ul>
           </article>
         </div></AppContainer
       >

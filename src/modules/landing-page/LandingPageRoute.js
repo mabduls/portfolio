@@ -6,6 +6,6 @@ export const LandingPageRoute = {
     layout: 'default',
     title: 'Muhammad Abdul Aziz — Fullstack Developer',
     description:
-      'Fullstack Developer building real-time systems, secure platforms, and interactive data-driven applications.',
+      'Fullstack development portfolio covering aircraft tracking, reinsurance operations, border monitoring, and data platforms.',
   },
 }

@@ -1,4 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="15" fill="#07111f"/>
-  <path d="M15 45 25 18h7l-3 9h9l3-9h8L39 46h-8l4-12h-9l-4 12z" fill="#67e8f9"/>
+  <rect width="64" height="64" rx="12" fill="#192536" />
+  <text
+    x="32"
+    y="42"
+    text-anchor="middle"
+    font-family="system-ui, sans-serif"
+    font-size="26"
+    font-weight="700"
+    fill="#9ebcff"
+  >
+    MA
+  </text>
 </svg>

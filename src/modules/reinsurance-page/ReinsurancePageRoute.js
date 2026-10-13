@@ -4,8 +4,8 @@ export const ReinsurancePageRoute = {
   component: () => import('./ReinsurancePageView.vue'),
   meta: {
     layout: 'project',
-    title: 'Reinsurance Platform Case Study — Muhammad Abdul Aziz',
+    title: 'Tugure × BRINS Reinsurance Platform — Muhammad Abdul Aziz',
     description:
-      'An enterprise workflow case study covering validation, bulk CSV processing, RBAC, audit support, dashboards, and notifications.',
+      'A role-aware reinsurance portal for contracts, debtor batches, claims, supporting documents, and financial follow-up.',
   },
 }
